@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Storefront: cart state + language live in src/lib/store.tsx context (localStorage); prices/WhatsApp message in src/lib/products.ts (tested). Why: no backend needed for WhatsApp ordering.
