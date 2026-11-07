@@ -50,7 +50,7 @@ export function cartTotal(lines: CartLine[]) {
   return lines.reduce((sum, l) => sum + (findLine(l)?.variant.price ?? 0) * l.qty, 0);
 }
 
-export type Customer = { name: string; phone: string; city: string; address: string; notes: string };
+export type Customer = { name: string; phone: string; address: string; notes: string };
 
 export function buildWhatsAppMessage(lines: CartLine[], c: Customer) {
   const items = lines
@@ -72,7 +72,6 @@ export function buildWhatsAppMessage(lines: CartLine[], c: Customer) {
     "*Customer details:*",
     `Name: ${c.name}`,
     `Phone: ${c.phone}`,
-    `City: ${c.city}`,
     `Address: ${c.address}`,
     c.notes ? `Notes: ${c.notes}` : "",
   ]

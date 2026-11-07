@@ -17,7 +17,7 @@ describe("pricing (SAR)", () => {
 
 describe("whatsapp checkout", () => {
   it("targets +966503267602 with total and customer name", () => {
-    const msg = buildWhatsAppMessage([{ productId: "bags", variantId: "bags-30", qty: 1 }], { name: "Sara", phone: "1", city: "Riyadh", address: "x", notes: "" });
+    const msg = buildWhatsAppMessage([{ productId: "bags", variantId: "bags-30", qty: 1 }], { name: "Sara", phone: "1", address: "x", notes: "" });
     expect(msg).toContain("Total: 100 SAR");
     expect(msg).toContain("Name: Sara");
     expect(whatsappUrl(msg).startsWith("https://wa.me/966503267602?text=")).toBe(true);

@@ -6,7 +6,7 @@ import { buildWhatsAppMessage, cartTotal, findLine, whatsappUrl, type Customer }
 export function CartDrawer() {
   const { open, setOpen, lines, setQty, remove, t, clear } = useStore();
   const [step, setStep] = useState<"cart" | "details">("cart");
-  const [c, setC] = useState<Customer>({ name: "", phone: "", city: "", address: "", notes: "" });
+  const [c, setC] = useState<Customer>({ name: "", phone: "", address: "", notes: "" });
   const total = cartTotal(lines);
   const close = () => { setOpen(false); setStep("cart"); };
 
@@ -66,7 +66,6 @@ export function CartDrawer() {
             <div className="flex-1 space-y-3 overflow-y-auto p-6">
               <input required className="field" placeholder={t("Full name", "الاسم الكامل")} value={c.name} onChange={(e) => setC({ ...c, name: e.target.value })} />
               <input required type="tel" className="field" placeholder={t("Phone number", "رقم الجوال")} value={c.phone} onChange={(e) => setC({ ...c, phone: e.target.value })} />
-              <input required className="field" placeholder={t("City", "المدينة")} value={c.city} onChange={(e) => setC({ ...c, city: e.target.value })} />
               <textarea required rows={3} className="field" placeholder={t("Delivery address", "عنوان التوصيل")} value={c.address} onChange={(e) => setC({ ...c, address: e.target.value })} />
               <textarea rows={2} className="field" placeholder={t("Notes (optional)", "ملاحظات (اختياري)")} value={c.notes} onChange={(e) => setC({ ...c, notes: e.target.value })} />
             </div>
